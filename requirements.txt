@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 python-dotenv
 pandas
 numpy
@@ -13,4 +14,21 @@ pyaml
 # python-multipart
 
 
+=======
+python-dotenv
+pandas
+numpy
+pymongo
+certifi
+pymongo[srv]
+scikit-learn
+mlflow
+pyaml
+dagshub
+fastapi
+uvicorn
+python-multipart
+
+
+>>>>>>> master
 ##-e .
