@@ -26,3 +26,7 @@ prediction_output/
 
 # macOS
 .DS_Store
+
+.claude
+
+.vscode
