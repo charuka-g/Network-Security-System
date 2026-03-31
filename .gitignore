@@ -1,6 +1,28 @@
-<<<<<<< HEAD
-venv
-=======
-venv
->>>>>>> master
+# Environment
 .env
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# Training artifacts (generated at runtime)
+artifacts/
+Artifacts/
+logs/
+
+# MLflow local tracking
+mlruns/
+mlflow.db
+
+# Model outputs (committed separately or stored in S3)
+models/
+final_model/
+prediction_output/
+
+# macOS
+.DS_Store
