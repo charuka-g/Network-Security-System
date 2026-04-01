@@ -22,6 +22,9 @@ from src.utils import (
     NetworkModel,
 )
 
+import dagshub
+dagshub.init(repo_owner='charukagunawardhaneixvii', repo_name='Network-Security-System', mlflow=True)
+
 
 class ModelTrainer:
     def __init__(self, transformation_artifact: DataTransformationArtifact, config: ModelTrainerConfig):
