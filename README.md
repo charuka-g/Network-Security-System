@@ -1,5 +1,4 @@
-=======
-### Phishing URL Detection (MLOps Project)
+## Phishing URL Detection (MLOps Project)
 
 ![Phishing Detection System](./architecture.png)
 
