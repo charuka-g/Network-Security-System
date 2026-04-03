@@ -2,6 +2,8 @@
 =======
 ### Phishing URL Detection (MLOps Project)
 
+(./architecture.png)
+
 This repository implements an end‑to‑end **Network Security / Phishing Detection** system using modern **MLOps** practices:
 
 - **Data ingestion** from MongoDB
