@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 =======
 ### Phishing URL Detection (MLOps Project)
 
