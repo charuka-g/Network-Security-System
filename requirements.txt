@@ -8,6 +8,7 @@ scikit-learn
 mlflow
 pyaml
 dagshub
+boto3
 fastapi
 uvicorn
 python-multipart

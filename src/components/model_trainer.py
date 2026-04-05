@@ -21,9 +21,7 @@ from src.utils import (
     save_object,
     NetworkModel,
 )
-
-import dagshub
-dagshub.init(repo_owner='charukagunawardhaneixvii', repo_name='Network-Security-System', mlflow=True)
+from src.integrations.dagshub_mlflow import init_dagshub
 
 
 class ModelTrainer:
@@ -32,9 +30,7 @@ class ModelTrainer:
         self.config = config
 
     def _setup_mlflow(self):
-        tracking_uri = os.getenv("MLFLOW_TRACKING_URI")
-        if tracking_uri:
-            mlflow.set_tracking_uri(tracking_uri)
+        init_dagshub()
 
     def _track_mlflow(self, model, metric):
         try:

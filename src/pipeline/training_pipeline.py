@@ -1,3 +1,4 @@
+import os
 import sys
 
 from src.exception import NetworkSecurityException
@@ -8,11 +9,13 @@ from src.config import (
     DataValidationConfig,
     DataTransformationConfig,
     ModelTrainerConfig,
+    TRAINING_BUCKET_NAME,
 )
 from src.components.data_ingestion import DataIngestion
 from src.components.data_validation import DataValidation
 from src.components.data_transformation import DataTransformation
 from src.components.model_trainer import ModelTrainer
+from src.cloud.s3_syncer import S3Syncer
 
 
 class TrainingPipeline:
@@ -38,6 +41,16 @@ class TrainingPipeline:
             logging.info("=== STEP 4: Model Training ===")
             trainer = ModelTrainer(transformation_artifact, ModelTrainerConfig(pipeline_config))
             trainer_artifact = trainer.initiate_model_trainer()
+
+            if os.getenv("AWS_ACCESS_KEY_ID"):
+                logging.info("=== STEP 5: Syncing artifacts to S3 ===")
+                syncer = S3Syncer(TRAINING_BUCKET_NAME)
+                syncer.sync_to_s3(
+                    pipeline_config.artifact_dir,
+                    f"artifacts/{pipeline_config.timestamp}",
+                )
+                syncer.sync_to_s3("models", "models")
+                logging.info("Artifacts synced to S3")
 
             logging.info("=" * 50)
             logging.info(f"Pipeline complete — model: {trainer_artifact.trained_model_file_path}")
